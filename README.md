@@ -1,177 +1,50 @@
-# Elite Glam Mobile App Documentation
+# Welcome to your Expo app 👋
 
-## Overview
-Elite Glam is a mobile application built with React Native and Expo, designed to provide a platform for fashion rental and sales. The app allows users to browse, rent, and purchase fashion items while providing store owners with tools to manage their inventory and bookings.
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Features
+## Get started
 
-### User Features
-- **Authentication**
-  - User registration and login
-  - Profile management
-  - Photo upload and management
-  - Secure token-based authentication
+1. Install dependencies
 
-- **Product Browsing**
-  - Browse products by categories
-  - Search functionality
-  - Product details view
-  - Product ratings and reviews
-  - Image gallery support
-
-- **Booking System**
-  - Product booking
-  - Booking status tracking
-  - Booking history
-  - Booking management (cancel, reschedule)
-
-- **Store Management**
-  - Product listing
-  - Inventory management
-  - Order tracking
-  - Sales analytics
-
-### Technical Features
-- Cross-platform support (iOS & Android)
-- Offline capability
-- Image caching
-- Real-time updates
-- Push notifications
-- Secure data storage
-
-## Technical Stack
-
-### Frontend
-- React Native
-- Expo
-- TypeScript
-- React Navigation
-- AsyncStorage
-- Axios for API calls
-
-### Backend Integration
-- RESTful API integration
-- Firebase Authentication
-- ImageKit for image management
-
-## Project Structure
-```
-elite-glam-frontend/
-├── app/
-│   ├── (auth)/           # Authentication screens
-│   ├── (store)/          # Store management screens
-│   ├── (tabs)/           # Main app tabs
-│   └── _layout.tsx       # Root layout
-├── assets/               # Static assets
-├── components/           # Reusable components
-├── config/              # Configuration files
-├── services/            # API services
-└── utils/               # Utility functions
-```
-
-## Setup and Installation
-
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
-- Expo CLI
-- iOS Simulator (for iOS development)
-- Android Studio (for Android development)
-
-### Installation Steps
-1. Clone the repository
    ```bash
-   git clone [repository-url]
-   ```
-
-2. Install dependencies
-   ```bash
-   cd elite-glam-frontend
    npm install
    ```
 
-3. Set up environment variables
-   - Create a `.env` file in the root directory
-   - Add required environment variables:
-     ```
-     EXPO_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
-     EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
-     EXPO_PUBLIC_FIREBASE_PROJECT_ID=your_firebase_project_id
-     EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
-     EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
-     EXPO_PUBLIC_FIREBASE_APP_ID=your_firebase_app_id
-     EXPO_PUBLIC_API_URL=your_api_url
-     ```
+2. Start the app
 
-4. Start the development server
    ```bash
-   npm start
+   npx expo start
    ```
 
-## API Integration
+In the output, you'll find options to open the app in a
 
-### Base URLs
-- Development:
-  - Android: `http://10.0.2.2:3001`
-  - iOS: `http://localhost:3001`
-  - Web: `http://localhost:3001`
-- Production: `https://elite-glam-backend.onrender.com`
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-### Key Endpoints
-- Authentication: `/auth/*`
-- Products: `/products/*`
-- Bookings: `/bookings/*`
-- Ratings: `/ratings/*`
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Device Compatibility
+## Get a fresh project
 
-### Supported Platforms
-- iOS 13.0 and above
-- Android 8.0 (API level 26) and above
+When you're ready, run:
 
-### Screen Sizes
-- Optimized for various screen sizes
-- Supports both portrait and landscape orientations
-- Adaptive layouts for different device types
+```bash
+npm run reset-project
+```
 
-## Performance Considerations
-- Image optimization
-- Lazy loading
-- Caching strategies
-- Network request optimization
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Security Features
-- Secure token storage
-- API request encryption
-- Input validation
-- Error handling
+## Learn more
 
-## Testing
-- Unit tests
-- Integration tests
-- UI/UX testing
-- Cross-platform testing
+To learn more about developing your project with Expo, look at the following resources:
 
-## Deployment
-1. Build the app
-   ```bash
-   expo build:android  # For Android
-   expo build:ios      # For iOS
-   ```
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-2. Submit to app stores
-   - Google Play Store
-   - Apple App Store
+## Join the community
 
-## Contributing
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+Join our community of developers creating universal apps.
 
-## License
-[Your License Information]
-
-## Support
-For support, email [support@eliteglam.com] or create an issue in the repository.
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.

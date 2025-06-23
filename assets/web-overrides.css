@@ -1,0 +1,16 @@
+/* Hide the orders tab in the navigation bar */
+[href*="orders"] {
+  display: none !important;
+}
+
+/* Adjust spacing for the remaining navigation items */
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Make sure the navigation items are evenly spaced */
+nav > a {
+  flex: 1;
+  text-align: center;
+} 
