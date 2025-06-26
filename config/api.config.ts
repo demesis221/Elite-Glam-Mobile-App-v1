@@ -15,6 +15,7 @@ const getTunnelUrl = () => {
 // List of fallback IPs to try if primary connection fails
 // This can help with the IP whitelist issue in MongoDB Atlas
 const FALLBACK_IPS = [
+  '0d62-203-177-60-24.ngrok-free.app', // ngrok tunnel
   '192.168.101.3',  // Your computer's IP
   '192.168.101.1',  // Your router's IP
   '10.0.2.2',       // Android emulator to host loopback
@@ -49,7 +50,7 @@ const testConnection = async (url: string): Promise<boolean> => {
 // Get best working API URL
 export const getBestApiUrl = async (): Promise<string> => {
   // Always try the local IP first (192.168.101.3)
-  const localIpUrl = 'http://192.168.101.3:3001';
+  const localIpUrl = 'https://d163-203-177-60-25.ngrok-free.app';
   console.log('Testing connection to:', localIpUrl);
   
   if (await testConnection(localIpUrl)) {
@@ -59,7 +60,7 @@ export const getBestApiUrl = async (): Promise<string> => {
   
   // If in development, try localhost as fallback
   if (__DEV__) {
-    const localhostUrl = 'http://localhost:3001';
+    const localhostUrl = 'https://d163-203-177-60-25.ngrok-free.app';
     console.log('Testing connection to:', localhostUrl);
     
     if (await testConnection(localhostUrl)) {
@@ -79,14 +80,14 @@ export const getBestApiUrl = async (): Promise<string> => {
 const API_URLS = {
   development: {
     // Use direct IP for development
-    android: 'http://192.168.101.3:3001',
-    ios: 'http://192.168.101.3:3001',
-    web: 'http://192.168.101.3:3001',
+    android: 'https://d163-203-177-60-25.ngrok-free.app',
+    ios: 'https://d163-203-177-60-25.ngrok-free.app',
+    web: 'https://d163-203-177-60-25.ngrok-free.app',
   },
   production: {
-    android: 'http://192.168.101.3:3001',  // For testing, use local IP
-    ios: 'http://192.168.101.3:3001',      // For testing, use local IP
-    web: 'http://192.168.101.3:3001',      // For testing, use local IP
+    android: 'https://d163-203-177-60-25.ngrok-free.app',  // For testing, use local IP
+    ios: 'https://d163-203-177-60-25.ngrok-free.app',      // For testing, use local IP
+    web: 'https://d163-203-177-60-25.ngrok-free.app',      // For testing, use local IP
   },
 };
 
@@ -111,4 +112,44 @@ export const API_CONFIG = {
   headers: {
     'Content-Type': 'application/json',
   },
-}; 
+};
+
+// Base API configuration
+export const BASE_API_CONFIG = {
+  baseURL: 'https://d163-203-177-60-25.ngrok-free.app',
+  timeout: 15000,
+  headers: {
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
+  }
+};
+
+// Function to test API connection
+export const testApiConnection = async (): Promise<string> => {
+  const testUrls = [
+    BASE_API_CONFIG.baseURL,
+    ...FALLBACK_IPS.map(ip => `http://${ip}:3001/api`)
+  ].filter(Boolean) as string[];
+
+  for (const url of testUrls) {
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
+      
+      const response = await fetch(url, { 
+        method: 'HEAD',
+        signal: controller.signal
+      });
+      
+      clearTimeout(timeoutId);
+      
+      if (response.ok) {
+        return url;
+      }
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.log(`Connection to ${url} failed:`, errorMessage);
+    }
+  }
+  throw new Error('No working API endpoints found');
+};

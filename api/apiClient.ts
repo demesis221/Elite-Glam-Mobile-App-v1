@@ -1,12 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
-import { Platform } from 'react-native';
 
 // Base URL configuration
 const API_URL = {
-  development: Platform.OS === 'android' 
-    ? 'http://10.0.2.2:5000/api' // Android emulator
-    : 'http://localhost:5000/api', // iOS simulator
+  development: 'https://d163-203-177-60-25.ngrok-free.app',
   production: 'https://elite-glam-api.herokuapp.com/api',
 };
 
