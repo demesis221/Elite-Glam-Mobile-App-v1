@@ -7,7 +7,7 @@ console.log('Environment API URL:', process.env.EXPO_PUBLIC_API_URL || 'Not set 
 
 // Create a singleton config object to hold the dynamic URL
 const ApiConfig = {
-  BASE_URL: 'http://192.168.101.3:3001', // Hardcoded for reliability
+  BASE_URL: 'https://elite-glam-app.onrender.com', // Updated to Render production URL
 };
 
 // Log the final API URL being used

@@ -3,8 +3,8 @@ import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
 // Base URL configuration
 const API_URL = {
-  development: 'https://d163-203-177-60-25.ngrok-free.app',
-  production: 'https://elite-glam-api.herokuapp.com/api',
+  development: 'https://elite-glam-app.onrender.com',
+  production: 'https://elite-glam-app.onrender.com',
 };
 
 // Create axios instance

@@ -2,6 +2,7 @@ import { ConfigContext, ExpoConfig } from 'expo/config';
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
+  owner: 'sensitivity161',
   name: 'Elite Glam',
   slug: 'elite-glam',
   version: '1.0.0',
@@ -31,9 +32,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   extra: {
     eas: {
-      projectId: 'c16984fd-9849-44e5-8e63-7b93671c978e'
+      projectId: 'ad135dbb-6ebb-486f-a2db-a0cc3c8dcea0'
     }
   },
+  
   plugins: [
     ['expo-router', {
       // Enable typed routes

@@ -50,7 +50,7 @@ const testConnection = async (url: string): Promise<boolean> => {
 // Get best working API URL
 export const getBestApiUrl = async (): Promise<string> => {
   // Always try the local IP first (192.168.101.3)
-  const localIpUrl = 'https://d163-203-177-60-25.ngrok-free.app';
+  const localIpUrl = 'https://elite-glam-app.onrender.com';
   console.log('Testing connection to:', localIpUrl);
   
   if (await testConnection(localIpUrl)) {
@@ -60,7 +60,7 @@ export const getBestApiUrl = async (): Promise<string> => {
   
   // If in development, try localhost as fallback
   if (__DEV__) {
-    const localhostUrl = 'https://d163-203-177-60-25.ngrok-free.app';
+    const localhostUrl = 'https://elite-glam-app.onrender.com';
     console.log('Testing connection to:', localhostUrl);
     
     if (await testConnection(localhostUrl)) {
@@ -80,14 +80,14 @@ export const getBestApiUrl = async (): Promise<string> => {
 const API_URLS = {
   development: {
     // Use direct IP for development
-    android: 'https://d163-203-177-60-25.ngrok-free.app',
-    ios: 'https://d163-203-177-60-25.ngrok-free.app',
-    web: 'https://d163-203-177-60-25.ngrok-free.app',
+    android: 'https://elite-glam-app.onrender.com',
+    ios: 'https://elite-glam-app.onrender.com',
+    web: 'https://elite-glam-app.onrender.com',
   },
   production: {
-    android: 'https://d163-203-177-60-25.ngrok-free.app',  // For testing, use local IP
-    ios: 'https://d163-203-177-60-25.ngrok-free.app',      // For testing, use local IP
-    web: 'https://d163-203-177-60-25.ngrok-free.app',      // For testing, use local IP
+    android: 'https://elite-glam-app.onrender.com',  // For testing, use local IP
+    ios: 'https://elite-glam-app.onrender.com',      // For testing, use local IP
+    web: 'https://elite-glam-app.onrender.com',      // For testing, use local IP
   },
 };
 
@@ -116,7 +116,7 @@ export const API_CONFIG = {
 
 // Base API configuration
 export const BASE_API_CONFIG = {
-  baseURL: 'https://d163-203-177-60-25.ngrok-free.app',
+  baseURL: 'https://elite-glam-app.onrender.com',
   timeout: 15000,
   headers: {
     'Content-Type': 'application/json',
